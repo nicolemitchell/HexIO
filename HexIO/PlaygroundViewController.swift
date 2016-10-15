@@ -67,14 +67,21 @@ class PlaygroundViewController: UIViewController, UIGestureRecognizerDelegate {
             newlyCreatedHex = UIImageView(image: imageView?.image)
             
             // The didPan: method will be defined in Step 3 below.
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap (sender:)))
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(sender:)))
             let rotationGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didRotate(sender:)))
             rotationGestureRecognizer.require(toFail: panGestureRecognizer)
             rotationGestureRecognizer.delegate = self
             panGestureRecognizer.delegate = self
+            tapGestureRecognizer.delegate = self
+
+            //tapGestureRecognizer.numberOfTapsRequired = 2
+
             
             // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
             newlyCreatedHex.isUserInteractionEnabled = true
+
+            newlyCreatedHex.addGestureRecognizer(tapGestureRecognizer)
             newlyCreatedHex.addGestureRecognizer(panGestureRecognizer)
             newlyCreatedHex.addGestureRecognizer(rotationGestureRecognizer)
             
@@ -97,6 +104,14 @@ class PlaygroundViewController: UIViewController, UIGestureRecognizerDelegate {
             newlyCreatedHex.layer.zPosition = -1
 
         }
+    }
+    
+    func didTap(sender: UITapGestureRecognizer) {
+        let location = sender.location(in: view)
+        let point = location
+        let imageView = sender.view as! UIImageView
+        imageView.transform = imageView.transform.rotated(by: 1.0472)
+        print("Tapped")
     }
 
     func didPan(sender: UIPanGestureRecognizer) {
