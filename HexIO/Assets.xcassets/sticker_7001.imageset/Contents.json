@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "sticker_7001.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "sticker_7001.png",
       "scale" : "2x"
     },
     {

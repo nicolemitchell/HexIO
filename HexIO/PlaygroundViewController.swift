@@ -8,9 +8,15 @@
 
 import UIKit
 
-class PlaygroundViewController: UIViewController {
+class PlaygroundViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
     @IBOutlet weak var drawerView: UIView!
+    
     var drawerOriginalCenter: CGPoint!
     var drawerDownOffset: CGFloat!
     var drawerUp: CGPoint!
@@ -44,7 +50,78 @@ class PlaygroundViewController: UIViewController {
         }
         
     }
+    
+    
+    var newlyCreatedHex: UIImageView!
+    
+    @IBOutlet weak var didPanHex: UIImageView!
+    
+    @IBAction func didPanHex(_ sender: UIPanGestureRecognizer) {
+        print("DID MOVE")
+        let translation = sender.translation(in: view)
+        var imageView = sender.view as! UIImageView!
+        var newlyCreatedHexOriginalCenter: CGPoint!
+        newlyCreatedHexOriginalCenter = sender.location(in: view)
+        
+        if sender.state == .began {
+            newlyCreatedHex = UIImageView(image: imageView?.image)
+            
+            // The didPan: method will be defined in Step 3 below.
+            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(sender:)))
+            let rotationGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didRotate(sender:)))
+            rotationGestureRecognizer.require(toFail: panGestureRecognizer)
+            rotationGestureRecognizer.delegate = self
+            panGestureRecognizer.delegate = self
+            
+            // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
+            newlyCreatedHex.isUserInteractionEnabled = true
+            newlyCreatedHex.addGestureRecognizer(panGestureRecognizer)
+            newlyCreatedHex.addGestureRecognizer(rotationGestureRecognizer)
+            
+            newlyCreatedHex.center = (imageView?.center)!
+            newlyCreatedHex.center.y += drawerView.frame.origin.y
+            newlyCreatedHexOriginalCenter = newlyCreatedHex.center
 
+            newlyCreatedHex.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            newlyCreatedHex.transform = newlyCreatedHex.transform.scaledBy(x: 0.5, y: 0.5)
+            
+            view.addSubview(newlyCreatedHex)
+            
+        }
+        if sender.state == .changed {
+            newlyCreatedHex.center = CGPoint(x: newlyCreatedHexOriginalCenter.x, y: newlyCreatedHexOriginalCenter.y)
+        }
+        if sender.state == .ended {
+            newlyCreatedHex.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            newlyCreatedHex.transform = newlyCreatedHex.transform.scaledBy(x: 0.5, y: 0.5)
+            newlyCreatedHex.layer.zPosition = -1
+
+        }
+    }
+
+    func didPan(sender: UIPanGestureRecognizer) {
+        let location = sender.location(in: view)
+        let velocity = sender.velocity(in: view)
+        let translation = sender.translation(in: view)
+        
+        if sender.state == .began {
+            print("Gesture began")
+            sender.view?.center = sender.location(in: view)
+        } else if sender.state == .changed {
+            print("Gesture is changing")
+            sender.view?.center = sender.location(in: view)
+        } else if sender.state == .ended {
+            print("Gesture ended")
+        }
+    }
+    
+    func didRotate(sender: UIRotationGestureRecognizer) {
+        print("DID ROTATE")
+        let rotation = sender.rotation
+        let imageView = sender.view as! UIImageView
+        imageView.transform = imageView.transform.rotated(by: rotation)
+        sender.rotation = 0
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
