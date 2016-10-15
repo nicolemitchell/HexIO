@@ -165,6 +165,10 @@
                                     <outletCollection property="gestureRecognizers" destination="z8h-2v-xWR" appends="YES" id="5WE-qG-D5G"/>
                                 </connections>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="trash" translatesAutoresizingMaskIntoConstraints="NO" id="oBW-j6-vZR">
+                                <frame key="frameInset" minX="324" minY="28" width="35" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -172,6 +176,7 @@
                     <connections>
                         <outlet property="didPanHex" destination="sX7-Xj-eee" id="5Ry-hw-KPX"/>
                         <outlet property="drawerView" destination="3e1-F1-21v" id="kta-XE-tp1"/>
+                        <outlet property="trashView" destination="oBW-j6-vZR" id="jBf-qP-avQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Na-L8-bpo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -228,5 +233,6 @@
         <image name="sticker_7002" width="352" height="305"/>
         <image name="sticker_7005" width="352" height="305"/>
         <image name="sticker_7006" width="352" height="305"/>
+        <image name="trash" width="511" height="544"/>
     </resources>
 </document>

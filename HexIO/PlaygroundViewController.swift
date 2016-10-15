@@ -16,6 +16,7 @@ class PlaygroundViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBOutlet weak var drawerView: UIView!
+    @IBOutlet weak var trashView: UIImageView!
     
     var drawerOriginalCenter: CGPoint!
     var drawerDownOffset: CGFloat!
@@ -68,19 +69,22 @@ class PlaygroundViewController: UIViewController, UIGestureRecognizerDelegate {
             
             // The didPan: method will be defined in Step 3 below.
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap (sender:)))
+            let turnOnGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress (sender:)))
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(sender:)))
             let rotationGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didRotate(sender:)))
             rotationGestureRecognizer.require(toFail: panGestureRecognizer)
             rotationGestureRecognizer.delegate = self
             panGestureRecognizer.delegate = self
             tapGestureRecognizer.delegate = self
+            turnOnGestureRecognizer.delegate = self
 
-            //tapGestureRecognizer.numberOfTapsRequired = 2
+            turnOnGestureRecognizer.minimumPressDuration = 1
 
             
             // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
             newlyCreatedHex.isUserInteractionEnabled = true
 
+            newlyCreatedHex.addGestureRecognizer(turnOnGestureRecognizer)
             newlyCreatedHex.addGestureRecognizer(tapGestureRecognizer)
             newlyCreatedHex.addGestureRecognizer(panGestureRecognizer)
             newlyCreatedHex.addGestureRecognizer(rotationGestureRecognizer)
@@ -127,6 +131,26 @@ class PlaygroundViewController: UIViewController, UIGestureRecognizerDelegate {
             sender.view?.center = sender.location(in: view)
         } else if sender.state == .ended {
             print("Gesture ended")
+            if dragIsOverTrash(sender) {
+                sender.view?.removeFromSuperview()
+            }
+        }
+    }
+    
+    func dragIsOverTrash(_ recognizer: UIPanGestureRecognizer) -> Bool {
+        var pointInTrash = recognizer.location(in: self.trashView)
+        return self.trashView.point(inside: pointInTrash, with: nil)
+    }
+    
+    func didLongPress(sender: UILongPressGestureRecognizer) {
+        print("Long Press")
+        let location = sender.location(in: view)
+        let imageView = sender.view as! UIImageView
+        if imageView.image == #imageLiteral(resourceName: "power") {
+            imageView.image = #imageLiteral(resourceName: "powerON")
+        }
+        else if imageView.image == #imageLiteral(resourceName: "powerON") {
+            imageView.image = #imageLiteral(resourceName: "power")
         }
     }
     
