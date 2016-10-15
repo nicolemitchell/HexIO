@@ -14,6 +14,10 @@
 		13BB3E511DB1C69C00D27987 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13BB3E4F1DB1C69C00D27987 /* LaunchScreen.storyboard */; };
 		13BB3E5C1DB1C69C00D27987 /* HexIOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BB3E5B1DB1C69C00D27987 /* HexIOTests.swift */; };
 		13BB3E671DB1C69C00D27987 /* HexIOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BB3E661DB1C69C00D27987 /* HexIOUITests.swift */; };
+		13BB3E771DB1CA2200D27987 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BB3E761DB1CA2200D27987 /* HomeViewController.swift */; };
+		13BB3E791DB1CA3600D27987 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BB3E781DB1CA3600D27987 /* CameraViewController.swift */; };
+		13BB3E7B1DB1CA4B00D27987 /* PlaygroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BB3E7A1DB1CA4B00D27987 /* PlaygroundViewController.swift */; };
+		13BB3E7D1DB1CEBE00D27987 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BB3E7C1DB1CEBE00D27987 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		13BB3E621DB1C69C00D27987 /* HexIOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexIOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BB3E661DB1C69C00D27987 /* HexIOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexIOUITests.swift; sourceTree = "<group>"; };
 		13BB3E681DB1C69C00D27987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13BB3E761DB1CA2200D27987 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		13BB3E781DB1CA3600D27987 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		13BB3E7A1DB1CA4B00D27987 /* PlaygroundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaygroundViewController.swift; sourceTree = "<group>"; };
+		13BB3E7C1DB1CEBE00D27987 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +108,13 @@
 				13BB3E461DB1C69C00D27987 /* AppDelegate.swift */,
 				13BB3E481DB1C69C00D27987 /* ViewController.swift */,
 				13BB3E4A1DB1C69C00D27987 /* Main.storyboard */,
+				13BB3E7C1DB1CEBE00D27987 /* TabBarController.swift */,
 				13BB3E4D1DB1C69C00D27987 /* Assets.xcassets */,
 				13BB3E4F1DB1C69C00D27987 /* LaunchScreen.storyboard */,
 				13BB3E521DB1C69C00D27987 /* Info.plist */,
+				13BB3E761DB1CA2200D27987 /* HomeViewController.swift */,
+				13BB3E781DB1CA3600D27987 /* CameraViewController.swift */,
+				13BB3E7A1DB1CA4B00D27987 /* PlaygroundViewController.swift */,
 			);
 			path = HexIO;
 			sourceTree = "<group>";
@@ -260,7 +272,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				13BB3E491DB1C69C00D27987 /* ViewController.swift in Sources */,
+				13BB3E791DB1CA3600D27987 /* CameraViewController.swift in Sources */,
 				13BB3E471DB1C69C00D27987 /* AppDelegate.swift in Sources */,
+				13BB3E7D1DB1CEBE00D27987 /* TabBarController.swift in Sources */,
+				13BB3E7B1DB1CA4B00D27987 /* PlaygroundViewController.swift in Sources */,
+				13BB3E771DB1CA2200D27987 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
