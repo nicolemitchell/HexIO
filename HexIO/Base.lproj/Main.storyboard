@@ -93,13 +93,76 @@
                     <view key="view" contentMode="scaleToFill" id="dDH-v2-fo4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3e1-F1-21v">
+                                <frame key="frameInset" minY="430" width="375" height="237"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleAspectFit" fixedFrame="YES" image="drag" translatesAutoresizingMaskIntoConstraints="NO" id="2Tn-Gc-jtU">
+                                        <frame key="frameInset" minX="170" minY="5" width="34" height="7"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="sticker_6004" translatesAutoresizingMaskIntoConstraints="NO" id="bYM-zk-VD9">
+                                        <frame key="frameInset" minX="15" minY="104" width="88" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="sticker_7001" translatesAutoresizingMaskIntoConstraints="NO" id="8oO-dQ-RmR">
+                                        <frame key="frameInset" minX="110" minY="20" width="88" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="sticker_7002" translatesAutoresizingMaskIntoConstraints="NO" id="xWq-Gi-uzo">
+                                        <frame key="frameInset" minX="110" minY="104" width="88" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="sticker_7005" translatesAutoresizingMaskIntoConstraints="NO" id="PL0-lK-VH0">
+                                        <frame key="frameInset" minX="206" minY="20" width="88" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="sticker_7006" translatesAutoresizingMaskIntoConstraints="NO" id="2UC-cG-sem">
+                                        <frame key="frameInset" minX="206" minY="104" width="88" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="sticker_6003" translatesAutoresizingMaskIntoConstraints="NO" id="sX7-Xj-eee">
+                                        <frame key="frameInset" minX="15" minY="20" width="88" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="sticker_7007" translatesAutoresizingMaskIntoConstraints="NO" id="AJ9-d9-63K">
+                                        <frame key="frameInset" minX="302" minY="52" width="57" height="99"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="z8h-2v-xWR" appends="YES" id="5WE-qG-D5G"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Playground" id="DGE-vQ-WSG"/>
+                    <connections>
+                        <outlet property="drawerView" destination="3e1-F1-21v" id="kta-XE-tp1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Na-L8-bpo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="z8h-2v-xWR">
+                    <connections>
+                        <action selector="didPanDrawer:" destination="L3o-vZ-cK9" id="QKQ-yM-pcP"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1049" y="886"/>
+            <point key="canvasLocation" x="1048.8" y="884.70764617691157"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="drag" width="477" height="102"/>
+        <image name="sticker_6003" width="705" height="611"/>
+        <image name="sticker_6004" width="705" height="611"/>
+        <image name="sticker_7001" width="704" height="611"/>
+        <image name="sticker_7002" width="705" height="611"/>
+        <image name="sticker_7005" width="705" height="611"/>
+        <image name="sticker_7006" width="705" height="611"/>
+        <image name="sticker_7007" width="3331" height="5776"/>
+    </resources>
 </document>
